@@ -27,5 +27,14 @@ public class ActorDAOImpl implements ActorDAO{
 		
 		return (Actor)query.getSingleResult();
 	}
+	
+	public void saveActor(Actor actor) {
+		EntityManager entityManager = this.emf.createEntityManager();
+		entityManager.getTransaction().begin();
+		entityManager.merge(actor);
+		entityManager.persist(actor);
+		entityManager.getTransaction().commit();
+		entityManager.close();
+	}
 
 }

@@ -15,5 +15,9 @@ public class ActorServiceImpl implements ActorService{
 	public Actor findActorByActorId(int actorId) {
 		return actorDAO.findActorByActorId(actorId);
 	}
+	public void saveActor(Actor actor) {
+		// TODO Auto-generated method stub
+		actorDAO.saveActor(actor);		
+	}
 
 }

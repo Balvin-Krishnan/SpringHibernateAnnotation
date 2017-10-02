@@ -1,5 +1,7 @@
 package com.balvin.SpringHibernateAnnotation;
 
+import java.sql.Timestamp;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,11 +24,21 @@ public class AppTest
 		
 		ActorService actorService = (ActorService)context.getBean("actorService");
 		
+		//Find Actor
 		Actor actor = actorService.findActorByActorId(2);
-		
 		System.out.println(actor.getFirstName());
 		
+		//Save Actor
+		Actor actor2 = new Actor();
+		actor2.setActorId(98764);
+		actor2.setFirstName("fName");
+		actor2.setLastName("lName");
+		actor2.setLastUpdate(new Timestamp(System.currentTimeMillis()));
+		actorService.saveActor(actor);
 		
+		
+		//Actor actor3 = actorService.findActorByActorId(1234);
+		//System.out.println(actor3.getFirstName());
 	}
     /**
      * Create the test case
