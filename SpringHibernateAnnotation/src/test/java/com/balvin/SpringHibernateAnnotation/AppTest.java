@@ -1,5 +1,11 @@
 package com.balvin.SpringHibernateAnnotation;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.balvin.entity.Actor;
+import com.balvin.service.ActorService;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -10,6 +16,18 @@ import junit.framework.TestSuite;
 public class AppTest 
     extends TestCase
 {
+	
+	public static void main(String[] args) {
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring/config/BeanLocation.xml");
+		
+		ActorService actorService = (ActorService)context.getBean("actorService");
+		
+		Actor actor = actorService.findActorByActorId(2);
+		
+		System.out.println(actor.getFirstName());
+		
+		
+	}
     /**
      * Create the test case
      *
