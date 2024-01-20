@@ -14,7 +14,7 @@ import com.balvin.entity.Actor;
 public class ActorDAOImpl implements ActorDAO{
 
 	private EntityManagerFactory emf;
-	
+	//Adding some comments
 	@PersistenceUnit
 	public void setEntityManagerFactory(EntityManagerFactory emf) {
 		this.emf = emf;
